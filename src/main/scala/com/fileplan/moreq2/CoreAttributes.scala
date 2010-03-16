@@ -1,7 +1,7 @@
 package com.fileplan.moreq2
 
 import java.util.Date
-import com.eaio.uuid.UUID
+import java.util.UUID
 
 /**
 	Every object within MoReq2 has the following attributes:<p/>
@@ -15,7 +15,7 @@ import com.eaio.uuid.UUID
 trait CoreAttributes {
 
 	// Every object 
-	val id: String = new UUID().toString()
+	val id: String = UUID.randomUUID.toString()
 	
 	var title: String = ""
 	var description: String = ""

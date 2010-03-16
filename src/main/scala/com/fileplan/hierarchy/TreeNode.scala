@@ -2,7 +2,6 @@ package com.fileplan.hierarchy
 
 import java.lang.{Class => JavaClass}
 import scala.collection.immutable.List
-import com.eaio.uuid.UUID
 
 /**
  * A node within a tree.  There are three distinct node types:
