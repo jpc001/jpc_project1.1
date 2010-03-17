@@ -27,7 +27,6 @@ define "fileplan" do
   #task :compile => download('http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar')
   # Use this approach when ScalaTest has an appropriate Maven link
   # compile.with 'org.scalatest:scalatest:jar:1.0'
-  # compile.with 'org.scalatest:scalatest:jar:1.0'
   
 end
 
