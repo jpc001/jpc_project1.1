@@ -6,25 +6,27 @@ VERSION_NUMBER = "0.0.0"
 GROUP = "fileplan.com"
 COPYRIGHT = "Proprietary Code. Do not publish or men in black will come to your door."
 
+SCALATEST_VER = "2.8.0.Beta1-SNAPSHOT"
+SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-#{SCALATEST_VER}/scalatest-1.0.1-for-scala-#{SCALATEST_VER}.jar"
+
+scalatest = download(artifact("scalatest:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
+
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
 # ScalaTest requires a specific snapshot to work with Scala 2.8.0 nightly builds
 # Note that download does not retrieve any dependencies (currently none required)
-scalatest = download('http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar')
+# scalatest = download('http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar')
 
 
 desc "Record Management System prototype"
 define "fileplan" do
-
   project.version = VERSION_NUMBER
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
   
-  # Tasks will go here.
   compile.with scalatest
-  #task :compile => scalatest
-  #task :compile => download('http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar')
+
   # Use this approach when ScalaTest has an appropriate Maven link
   # compile.with 'org.scalatest:scalatest:jar:1.0'
   
