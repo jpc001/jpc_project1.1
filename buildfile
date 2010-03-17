@@ -7,16 +7,13 @@ GROUP = "fileplan.com"
 COPYRIGHT = "Proprietary Code. Do not publish or men in black will come to your door."
 
 SCALATEST_VER = "2.8.0.Beta1-SNAPSHOT"
+# ScalaTest requires a specific snapshot to work with Scala 2.8.0 nightly builds
 SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-#{SCALATEST_VER}/scalatest-1.0.1-for-scala-#{SCALATEST_VER}.jar"
-
-scalatest = download(artifact("scalatest:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
 
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
-# ScalaTest requires a specific snapshot to work with Scala 2.8.0 nightly builds
-# Note that download does not retrieve any dependencies (currently none required)
-# scalatest = download('http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar')
+scalatest = download(artifact("scalatest:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
 
 
 desc "Record Management System prototype"
