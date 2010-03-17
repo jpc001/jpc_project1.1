@@ -11,7 +11,8 @@ repositories.remote << "http://www.ibiblio.org/maven2/"
 
 # ScalaTest requires a specific snapshot to work with Scala 2.8.0 nightly builds
 # Note that download does not retrieve any dependencies (currently none required)
-scalatest = download('http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar')
+SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT/scalatest-1.0.1-for-scala-2.8.0.Beta1-SNAPSHOT.jar"
+scalatest = download(artifact("org.scalatest:scalatest:jar:1.0.1") => SCALATEST_URL)
 
 
 desc "Record Management System prototype"
