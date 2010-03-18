@@ -1,0 +1,14 @@
+
+/target/
+/reports/
+
+# Eclipse files should be generated on each platform using 'buildr eclipse'
+/.classpath
+/.project
+/ant.xml
+/.scala_dependencies
+
+# Mac specific Finder files
+.DS_Store
+
+
