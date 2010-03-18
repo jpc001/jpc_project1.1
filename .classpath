@@ -4,8 +4,7 @@
 	<classpathentry excluding="**/.svn/|**/CVS/" kind="src" output="target/test/classes" path="src/test/scala"/>
 	<classpathentry kind="lib" path="C:/Program Files/Scala/scala_2.8.0/lib/scala-compiler.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Scala/scala_2.8.0/lib/scala-library.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/scalatest/scalatest/1.0.1/scalatest-1.0.1.jar" sourcepath="M2_REPO/org/scalatest/scalatest/1.0.1/scalatest-1.0.1-sources.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/scala-tools/testing/scalatest/0.9.5/scalatest-0.9.5.jar" sourcepath="M2_REPO/org/scala-tools/testing/scalatest/0.9.5/scalatest-0.9.5-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/local/scalatest/2.8.0.Beta1-SNAPSHOT/scalatest-2.8.0.Beta1-SNAPSHOT.jar" sourcepath="M2_REPO/local/scalatest/2.8.0.Beta1-SNAPSHOT/scalatest-2.8.0.Beta1-SNAPSHOT-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/scala-tools/testing/scalacheck/1.5/scalacheck-1.5.jar" sourcepath="M2_REPO/org/scala-tools/testing/scalacheck/1.5/scalacheck-1.5-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/jmock/jmock/1.2.0/jmock-1.2.0.jar" sourcepath="M2_REPO/jmock/jmock/1.2.0/jmock-1.2.0-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/4.5/junit-4.5.jar" sourcepath="M2_REPO/junit/junit/4.5/junit-4.5-sources.jar"/>

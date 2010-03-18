@@ -13,7 +13,7 @@ SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalate
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
-scalatest = download(artifact("scalatest:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
+scalatest = download(artifact("local:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
 
 
 desc "Record Management System prototype"
@@ -50,3 +50,19 @@ task :ant do |task|
     f.write "</project>\n"
   end
 end
+
+#
+# The following will fix the scalatest 0.9.5 dependency issue that causes
+# BuildR to fail (FeatureSpec trait does not exist in 0.9.5), but we need
+# to identify the root cause of the 0.9.5 dependency.
+#
+#module Buildr::Scala
+#  class ScalaTest
+#    class << self
+#      def dependencies
+#        ["org.scalatest:scalatest:jar:#{SCALATEST_VER}"] + Check.dependencies +
+#          JMock.dependencies + JUnit.dependencies
+#      end
+#    end
+#  end
+#end 
