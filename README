@@ -1,0 +1,26 @@
+
+  -----------------
+  Development Setup
+  -----------------
+
+
+  The repository only contains source material. Some files need to be generated
+  when running under Eclipse
+
+  To use within a shell window
+  -----------------------------
+  No changes needed. Simply invoke buildr compile, buildr test, etc
+
+
+  To use within Eclipse
+  ------------------------
+  Generate the project and classpath files using
+    buildr eclipse
+
+  Then generate the ant script (thin shell calling BuildR) using:
+    buildr ant
+
+  Start Eclipse, import the project (do not copy to workspace) and
+  load the ant script. Tasks can then be called from within Eclipse
+  using the Ant panel.
+
