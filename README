@@ -12,15 +12,23 @@
   No changes needed. Simply invoke buildr compile, buildr test, etc
 
 
-  To use within Eclipse
+  Eclipse Settup
   ------------------------
-  Generate the project and classpath files using
-    buildr eclipse
+  1) Generate the project and classpath files using
+       buildr eclipse
 
-  Then generate the ant script (thin shell calling BuildR) using:
-    buildr ant
+  2) Then generate the ant script (thin shell calling BuildR) using:
+       buildr ant
 
-  Start Eclipse, import the project (do not copy to workspace) and
-  load the ant script. Tasks can then be called from within Eclipse
-  using the Ant panel.
+  3) Start Eclipse, import the project (do not copy to workspace).
+
+  4) Specify your Maven repository to Eclipse
+     Go to File -> Preferences, Java/Build Path/Class Path Variables and
+     add the following variable
+       M2_REPO = <path to the local Maven repository>
+
+     On a Mac, the path is typically /Users/<username>/.m2/repository
+
+  5) Tasks can then be called from within Eclipse
+       using the Ant panel.
 
