@@ -2,7 +2,7 @@ package com.fileplan.moreq2
 
 import com.fileplan.hierarchy.TreeModel
 
-class Model(root: Scheme) extends TreeModel(root) {
+class Model(root: System) extends TreeModel(root) {
 
 	// TODO
 	

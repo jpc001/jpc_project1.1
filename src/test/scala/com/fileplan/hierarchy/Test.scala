@@ -70,7 +70,8 @@ object Test extends Application {
 		
 		// scheme1 allows only RMClass
 		val scheme1 = new Scheme
-		val moreq2 = new Model(scheme1)
+		val moreq2 = new System
+		moreq2.add(scheme1)
 		//scheme1.allowsChildren = true
 		val class1 = new Class(classOf[Class])
 		scheme1.add(class1) 
