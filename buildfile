@@ -40,7 +40,7 @@ task :ant do |task|
     Project.tasks.each do |task|
       if task.comment != nil
         f.write "\n"
-        f.write "  <target name=\"#{task.name}\">\n"
+        f.write "  <target name=\"#{task.name}\"\n"
         f.write "      description=\"#{task.comment}\">\n"
         f.write "    <exec executable=\"buildr\" dir=\"#{Dir.pwd}\">\n"
         f.write "      <arg value=\"#{task.name}\" />\n"
