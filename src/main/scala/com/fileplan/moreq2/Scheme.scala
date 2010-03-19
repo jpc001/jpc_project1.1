@@ -5,7 +5,9 @@ import com.fileplan.hierarchy.TreeNode
 /**
  * 
  */
-class Scheme extends TreeNode with CoreAttributes {
+class Scheme(title: String) extends Node {
+
+	def this() = this("New Classification Scheme")
 
 	// A scheme only contains classes
 	supportedChildTypes(List(classOf[Class]))

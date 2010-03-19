@@ -25,8 +25,7 @@ class MoReq2Spec extends FeatureSpec with GivenWhenThen {
 
 		scenario("No classification schemes exist") {
 			given("a system with no classification schemes")
-				val rms1 = new System()
-				rms1.title = "RMS 1"
+				val rms1 = new System("RMS 1")
 			when("a new classification scheme is added")
 				val scheme1 = new Scheme()
 				scheme1.title = "Scheme 1"
@@ -37,8 +36,7 @@ class MoReq2Spec extends FeatureSpec with GivenWhenThen {
 
 		scenario("At least one classification scheme exists") {
 			given("a system with one or more classification schemes")
-				val rms1 = new System()
-				rms1.title = "RMS 1"
+				val rms1 = new System("RMS 1")
 				val scheme1 = new Scheme()
 				scheme1.title = "Scheme 1"
 				rms1.add(scheme1)

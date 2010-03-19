@@ -8,7 +8,7 @@ import com.fileplan.hierarchy.TreeNode
  * object: classes, files or records.  An exception is thrown if the specified child type
  * is not one of these.
  */
-class Class(childType: JavaClass[_ <: TreeNode]) extends TreeNode with CoreAttributes with Container {
+class Class(childType: JavaClass[_ <: TreeNode]) extends Node with Container {
 	
 	// Supported child types are Classes, Files or Records
 	supportedChildTypes(List(classOf[Class], classOf[File], classOf[Record]))
