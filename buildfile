@@ -1,10 +1,12 @@
 # BuildR buildfile for the RMS project
 require 'buildr/scala'
-require 'yaml'
+require 'rbconfig'
+
 
 VERSION_NUMBER = "0.0.0"
 GROUP = "fileplan.com"
 COPYRIGHT = "Copyright © Reposinet 2010"
+BUILDR = (RbConfig::CONFIG['host_os'] =~ /mswin|windows|cygwin|mingw32/i) ? 'buildr.bat' : 'buildr'
 
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
@@ -14,10 +16,15 @@ repositories.remote << "http://www.ibiblio.org/maven2/"
 SCALATEST_VER = "1.0.1-for-scala-2.8.0.Beta1-NQRFPT"
 scalatest = artifact("org.scalatest:scalatest:jar:#{SCALATEST_VER}")
 
+
 # Alternate download location for ScalaTest
 #SCALATEST_VER = "2.8.0.Beta1-SNAPSHOT"
 #SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-#{SCALATEST_VER}/scalatest-1.0.1-for-scala-#{SCALATEST_VER}.jar"
 #scalatest = download(artifact("local:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
+
+task :os do
+  puts "Host OS: #{RbConfig::CONFIG['host_os']}"
+end
 
 desc "Record Management System prototype"
 define "fileplan" do
@@ -34,7 +41,7 @@ end
 # Creates an ant builtfile shell to trigger buildr tasks from within Eclipse
 task :ant do |task|  
   File.open 'ant.xml', 'w' do |f|
-    f.write "<project name=\"default\" basedir=\"#{Dir.pwd}\">\n"
+    f.write "<project name=\"Reposinet\" basedir=\"#{Dir.pwd}\">\n"
     f.write "  <description> Description would go here\n"
     f.write "  </description>\n"
     Project.tasks.each do |task|
@@ -42,7 +49,7 @@ task :ant do |task|
         f.write "\n"
         f.write "  <target name=\"#{task.name}\"\n"
         f.write "      description=\"#{task.comment}\">\n"
-        f.write "    <exec executable=\"buildr\" dir=\"#{Dir.pwd}\">\n"
+        f.write "    <exec executable=\"#{BUILDR}\" dir=\"#{Dir.pwd}\">\n"
         f.write "      <arg value=\"#{task.name}\" />\n"
         f.write "    </exec>\n"
         f.write "  </target>\n"
