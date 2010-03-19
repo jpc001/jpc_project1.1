@@ -1,7 +1,6 @@
 package com.fileplan.moreq2
 
 import org.scalatest.FeatureSpec
-import org.scalatest.GivenWhenThen
 
 /** ScalaTest using Scala 2.8 requires ScalaTest version 1.0.1
  *  http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-RC1-SNAPSHOT/

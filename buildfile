@@ -4,17 +4,20 @@ require 'yaml'
 
 VERSION_NUMBER = "0.0.0"
 GROUP = "fileplan.com"
-COPYRIGHT = "Proprietary Code. Do not publish or men in black will come to your door."
-
-SCALATEST_VER = "2.8.0.Beta1-SNAPSHOT"
-# ScalaTest requires a specific snapshot to work with Scala 2.8.0 nightly builds
-SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-#{SCALATEST_VER}/scalatest-1.0.1-for-scala-#{SCALATEST_VER}.jar"
+COPYRIGHT = "Copyright © Reposinet 2010"
 
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
-scalatest = download(artifact("local:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
+# Get ScalaTest via Maven repository
+# 19/03/2010 - Currently, ScalaTest requires a specific beta release to work with Scala 2.8.0 nightly builds
+SCALATEST_VER = "1.0.1-for-scala-2.8.0.Beta1-NQRFPT"
+scalatest = artifact("org.scalatest:scalatest:jar:#{SCALATEST_VER}")
 
+# Alternate download location for ScalaTest
+#SCALATEST_VER = "2.8.0.Beta1-SNAPSHOT"
+#SCALATEST_URL = "http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-#{SCALATEST_VER}/scalatest-1.0.1-for-scala-#{SCALATEST_VER}.jar"
+#scalatest = download(artifact("local:scalatest:jar:#{SCALATEST_VER}")=>SCALATEST_URL)
 
 desc "Record Management System prototype"
 define "fileplan" do
@@ -22,11 +25,9 @@ define "fileplan" do
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
   
-  compile.with scalatest
+  test.with scalatest
+  test.using :scalatest
 
-  # Use this approach when ScalaTest has an appropriate Maven link
-  # compile.with 'org.scalatest:scalatest:jar:1.0'
-  
 end
 
 
@@ -52,17 +53,20 @@ task :ant do |task|
 end
 
 #
-# The following will fix the scalatest 0.9.5 dependency issue that causes
-# BuildR to fail (FeatureSpec trait does not exist in 0.9.5), but we need
-# to identify the root cause of the 0.9.5 dependency.
+# BuildR attempts to use ScalaTest 0.9.5, which does not contain the
+# FeatureSpec class used by our test classes.  The following is a temporary
+# workaround that redefines the dependencies for the scala.test class so that
+# BuildR uses the correct ScalaTest release (1.0.1).
 #
-#module Buildr::Scala
-#  class ScalaTest
-#    class << self
-#      def dependencies
-#        ["org.scalatest:scalatest:jar:#{SCALATEST_VER}"] + Check.dependencies +
-#          JMock.dependencies + JUnit.dependencies
-#      end
-#    end
-#  end
-#end 
+# See: http://issues.apache.org/jira/browse/BUILDR-332
+#
+module Buildr::Scala
+  class ScalaTest
+    class << self
+      def dependencies
+        ["org.scalatest:scalatest:jar:#{SCALATEST_VER}"] + Check.dependencies +
+          JMock.dependencies + JUnit.dependencies
+      end
+    end
+  end
+end 
