@@ -16,19 +16,17 @@
   ------------------------
   1) Generate the project and classpath files using
        buildr eclipse
+     This will generate the following files: .project, .classpath, ant.xml
 
-  2) Then generate the ant script (thin shell calling BuildR) using:
-       buildr ant
+  2) Start Eclipse, import the project (do not copy to workspace).
 
-  3) Start Eclipse, import the project (do not copy to workspace).
-
-  4) Specify your Maven repository to Eclipse
+  3) Specify your Maven repository to Eclipse
      Go to File -> Preferences, Java/Build Path/Class Path Variables and
      add the following variable
        M2_REPO = <path to the local Maven repository>
 
      On a Mac, the path is typically /Users/<username>/.m2/repository
 
-  5) Tasks can then be called from within Eclipse
+  4) Tasks can then be called from within Eclipse
        using the Ant panel.
 

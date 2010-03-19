@@ -1,6 +1,7 @@
 
 /target/
 /reports/
+/log
 
 # Eclipse files should be generated on each platform using 'buildr eclipse'
 /.classpath

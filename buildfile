@@ -52,6 +52,8 @@ task :ant do |task|
   end
 end
 
+task :eclipse => :ant
+
 #
 # BuildR attempts to use ScalaTest 0.9.5, which does not contain the
 # FeatureSpec class used by our test classes.  The following is a temporary
@@ -70,3 +72,4 @@ module Buildr::Scala
     end
   end
 end 
+
