@@ -2,9 +2,9 @@ package com.fileplan.hierarchy
 
 import com.fileplan.moreq2._
 
-object Test extends Application {
+object Test {
 
-	override def main(args: Array[String]) {
+	def main(args: Array[String]) {
 
 		//val root = new TreeNode(None, true)
 		val root1 = new TreeNode()

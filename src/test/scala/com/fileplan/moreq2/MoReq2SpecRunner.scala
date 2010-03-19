@@ -1,8 +1,8 @@
 package com.fileplan.moreq2
 
-object MoReq2SpecRunner extends Application {
+object MoReq2SpecRunner {
 	
-	override def main(args: Array[String]) {
+	def main(args: Array[String]) {
 
 		(new MoReq2Spec).execute()
 	}
