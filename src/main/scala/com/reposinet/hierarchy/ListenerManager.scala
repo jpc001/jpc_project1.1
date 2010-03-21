@@ -1,4 +1,4 @@
-package com.fileplan.hierarchy
+package com.reposinet.hierarchy
 
 trait ListenerManager[E] {
     type L = (E) => Unit

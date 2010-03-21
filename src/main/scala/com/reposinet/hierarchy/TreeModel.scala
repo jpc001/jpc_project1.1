@@ -1,4 +1,4 @@
-package com.fileplan.hierarchy
+package com.reposinet.hierarchy
 
 /**
  * A TreeModel manages nodes in a tree-like structure, which consists of

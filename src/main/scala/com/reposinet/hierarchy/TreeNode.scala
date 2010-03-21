@@ -1,4 +1,4 @@
-package com.fileplan.hierarchy
+package com.reposinet.hierarchy
 
 import java.lang.{Class => JavaClass}
 import scala.collection.immutable.List

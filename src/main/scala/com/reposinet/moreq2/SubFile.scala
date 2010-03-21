@@ -1,7 +1,7 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
 import java.lang.{Class => JavaClass}
-import com.fileplan.hierarchy.TreeNode
+import com.reposinet.hierarchy.TreeNode
 
 class SubFile(childType: JavaClass[_ <: TreeNode]) extends TreeNode(true) with CoreAttributes with Container {
 

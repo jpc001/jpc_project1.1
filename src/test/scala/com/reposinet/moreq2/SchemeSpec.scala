@@ -1,11 +1,14 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
 import org.scalatest.FeatureSpec
 import org.scalatest.GivenWhenThen
 
-import com.fileplan.moreq2._
+import com.reposinet.moreq2._
 
-/** ScalaTest using Scala 2.8 requires ScalaTest version 1.0.1
+/** 
+ *  This class tests the MoReq2 Classification Scheme class.
+ *  
+ *  ScalaTest using Scala 2.8 requires ScalaTest version 1.0.1
  *  Maven: org.scalatest:scalatest:jar:1.0.1-for-scala-2.8.0.Beta1-NQRFPT
  *  Download: http://www.scala-tools.org/repo-snapshots/org/scalatest/scalatest/1.0.1-for-scala-2.8.0.Beta1-RC1-SNAPSHOT/
  *  
@@ -19,7 +22,7 @@ import com.fileplan.moreq2._
  * For example, "E:/Users/Ben/.m2/repository".  Failure to do this will mean Eclipse cannot
  * find the artifacts and report compile errors.
  */
-class MoReq2Spec extends FeatureSpec with GivenWhenThen {
+class SchemeSpec extends FeatureSpec with GivenWhenThen {
 
 	feature("Administrator can create one or more classification schemes") {
 
@@ -64,6 +67,7 @@ class MoReq2Spec extends FeatureSpec with GivenWhenThen {
 				val scheme2 = new Scheme()
 				scheme2.title = "Scheme 1"
 			then("the system should throw an IllegalArgumentException")
+				//TODO
 				assert(true)
 				/*
 				intercept[IllegalArgumentException] {
@@ -77,4 +81,30 @@ class MoReq2Spec extends FeatureSpec with GivenWhenThen {
 		}
 	}
 
+	feature("Administrator can rename a classification scheme") {
+
+		scenario("Administrator renames an existing classification scheme") {
+			given("a system with a classification scheme called 'Scheme 1'")
+				val rms1 = new System("RMS 1")
+				val scheme1 = new Scheme()
+				scheme1.title = "Scheme 1"
+				rms1.add(scheme1)
+			when("the scheme is renamed to 'Scheme 2'")
+				scheme1.title = "Scheme 2"
+			then("the system should have a classifaction scheme named 'Scheme 2'")
+				//TODO
+			and("the system should not have a classifaction scheme named 'Scheme 1'")
+				//TODO
+				pending
+		}
+	}
+
+	feature("Administrator can delete a classification scheme") {
+		//TODO
+		// Can only delete an empty scheme
+	}
+
+	feature("Administrator can combine (merge) two classification schemes into a single scheme") {
+		//TODO
+	}
 }

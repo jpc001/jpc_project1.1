@@ -1,7 +1,7 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
 import java.util.Date
-import com.fileplan.hierarchy.TreeNode
+import com.reposinet.hierarchy.TreeNode
 
 trait Container extends TreeNode {
 

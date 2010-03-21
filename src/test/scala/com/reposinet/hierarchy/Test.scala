@@ -1,6 +1,6 @@
-package com.fileplan.hierarchy
+package com.reposinet.hierarchy
 
-import com.fileplan.moreq2._
+import com.reposinet.moreq2._
 
 object Test {
 

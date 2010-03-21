@@ -1,6 +1,6 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
-import com.fileplan.hierarchy.TreeModel
+import com.reposinet.hierarchy.TreeModel
 
 class Model(root: System) extends TreeModel(root) {
 

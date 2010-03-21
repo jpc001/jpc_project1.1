@@ -1,6 +1,6 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
-import com.fileplan.hierarchy.TreeNode
+import com.reposinet.hierarchy.TreeNode
 
 class Record extends TreeNode with CoreAttributes {
 

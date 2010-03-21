@@ -1,7 +1,7 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
 import java.lang.{Class => JavaClass}
-import com.fileplan.hierarchy.TreeNode
+import com.reposinet.hierarchy.TreeNode
 
 class File(childType: java.lang.Class[_ <: TreeNode]) extends TreeNode with CoreAttributes with Container {
 

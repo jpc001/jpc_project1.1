@@ -1,6 +1,6 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
-import com.fileplan.hierarchy.TreeNode
+import com.reposinet.hierarchy.TreeNode
 
 //TODO Decide whether to keep this class or not?  I suspect Bernard won't like it.
 //TODO Can this constructor be used/overridden by subclasses?

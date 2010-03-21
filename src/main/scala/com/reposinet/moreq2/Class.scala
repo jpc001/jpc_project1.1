@@ -1,7 +1,7 @@
-package com.fileplan.moreq2
+package com.reposinet.moreq2
 
 import java.lang.{Class => JavaClass}
-import com.fileplan.hierarchy.TreeNode
+import com.reposinet.hierarchy.TreeNode
 
 /**
  * A class defines part of a classification scheme.  It may only contain one type of

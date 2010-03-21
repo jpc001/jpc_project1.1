@@ -27,7 +27,7 @@ task :os do
 end
 
 desc "Record Management System prototype"
-define "fileplan" do
+define "reposinet" do
   project.version = VERSION_NUMBER
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
