@@ -2,19 +2,40 @@
 require 'buildr/scala'
 require 'rbconfig'
 
-
 VERSION_NUMBER = "0.0.0"
-GROUP = "fileplan.com"
+GROUP = "reposinet.com"
 COPYRIGHT = "Copyright © Reposinet 2010"
 BUILDR = (RbConfig::CONFIG['host_os'] =~ /mswin|windows|cygwin|mingw32/i) ? 'buildr.bat' : 'buildr'
 
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
+repositories.remote << "http://maven.restlet.org/"
 
 # Get ScalaTest via Maven repository
 # 19/03/2010 - Currently, ScalaTest requires a specific beta release to work with Scala 2.8.0 nightly builds
 SCALATEST_VER = "1.0.1-for-scala-2.8.0.Beta1-NQRFPT"
 scalatest = artifact("org.scalatest:scalatest:jar:#{SCALATEST_VER}")
+
+
+# XStream is used for XML/JSON parsing
+#XSTREAM_VER = "1.3.1"
+#xstream = artifact("com.thoughtworks.xstream:xstream:jar:#{XSTREAM_VER}")
+#JETTISON_VER = "1.2"
+#jettison = artifact("org.codehaus.jettison:jettison:jar:#{JETTISON_VER}")
+
+# Jackson is used for JSON serialisation
+JACKSON_VER = "1.3.0"
+jackson_core = artifact("org.codehaus.jackson:jackson-core-asl:jar:#{JACKSON_VER}")
+jackson_ = artifact("org.codehaus.jackson:jackson-mapper-asl:jar:#{JACKSON_VER}")
+
+# Restlet artifacts
+RESTLET_VER = "2.0-RC3"
+restlet = artifact("org.restlet.jse:org.restlet:jar:#{RESTLET_VER}")
+restlet_jackson = artifact("org.restlet.jse:org.restlet.ext.jackson:jar:#{RESTLET_VER}")
+
+#restlet_xstream = artifact("org.restlet.jse:org.restlet.ext.xstream:jar:#{RESTLET_VER}")
+#restlet_httpclient = artifact("org.restlet.jse:org.restlet.ext.httpclient:jar:#{RESTLET_VER}")
+#restlet_net = artifact("org.restlet.jse:org.restlet.ext.net:jar:#{RESTLET_VER}")
 
 
 # Alternate download location for ScalaTest
@@ -38,7 +59,7 @@ define "reposinet" do
 end
 
 
-# Creates an ant builtfile shell to trigger buildr tasks from within Eclipse
+# Creates an ant buildfile shell to trigger buildr tasks from within Eclipse
 task :ant do |task|  
   File.open 'ant.xml', 'w' do |f|
     f.write "<project name=\"Reposinet\" basedir=\"#{Dir.pwd}\">\n"

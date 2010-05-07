@@ -1,0 +1,10 @@
+curl -X PUT http://localhost:5984/rms/_design/main -d @E:\Users\Ben\Documents\Programming\RMS2/couchdb_design.json
+
+curl -X DELETE http://localhost:5984/rms/_design/main?rev=1-35b5d08c46a0136c678f6ceffed04ef4
+
+curl -X GET http://localhost:5984/rms/_all_docs
+
+curl -X GET http://localhost:5984/_uuids
+
+curl -X GET http://localhost:5984/rms/84f5f4d67faf47718456cb0985000451
+

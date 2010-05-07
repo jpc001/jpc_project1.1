@@ -1,0 +1,61 @@
+{
+    "_id":"_design/main",
+    "_rev":"6-3df1de94e78fd021df05df1d5130e58f",
+    "language": "javascript",
+
+    "fulltext": {
+        "by_subject": {
+            "index":"function(doc) { var ret=new Document(); ret.add(doc.subject); return ret }"
+        },
+        "by_content": {
+            "index":"function(doc) { var ret=new Document(); ret.add(doc.content); return ret }"
+        },
+        "by_all": {
+            "index":"function(doc) {
+			var ret=new Document();
+
+			function idx(obj) {
+				for (var key in obj) {
+					switch (typeof obj[key]) {
+						case 'object': idx(obj[key]); break;
+						case 'function': break;
+						default: ret.add(obj[key]); break;
+					}
+				}
+			};
+			idx(doc);
+
+			if (doc._attachments) {
+				for (var i in doc._attachments) {
+					ret.attachment(\"attachment\", i);
+				}
+			}
+
+			return ret; }"
+        },
+	"by_attachment": {
+		"index":"function(doc) {
+			var result = new Document();
+			for(var a in doc._attachments) {
+				result.attachment(a, {\"field\":\"attachment\"});
+			}
+			return result; }"
+	}
+    },
+
+    "views": {
+	"all": {
+		"map": "function(doc) {
+			var key = null;
+			emit(key, doc);
+		}"
+	},
+	"conflicts": {
+		"map": "function(doc) {
+			if(doc._conflicts) {
+				emit(doc._conflicts, null);
+			}
+		}"
+	}
+    }
+}

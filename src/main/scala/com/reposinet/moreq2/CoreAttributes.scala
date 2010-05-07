@@ -2,6 +2,7 @@ package com.reposinet.moreq2
 
 import java.util.Date
 import java.util.UUID
+import scala.reflect.BeanProperty
 
 /**
 	Every object within MoReq2 has the following attributes:<p/>
@@ -14,10 +15,14 @@ import java.util.UUID
 */
 trait CoreAttributes {
 
-	// Every object 
+	// Every object
+	@BeanProperty
 	val id: String = UUID.randomUUID.toString()
-	
+
+	@BeanProperty
 	var title: String = ""
+		
+	@BeanProperty
 	var description: String = ""
 		
 	//var parent: Option[Container] = None
@@ -28,13 +33,18 @@ trait CoreAttributes {
 
 	//TODO Automatically assign the current date/time
 	//TODO I want this: val createdOn: Date = Context.currentDate()
+	@BeanProperty
 	var createdOn: Option[Date] = None
 
 	// TODO - Allow a 'original' creator/creation date for imported objects?
+	@BeanProperty
 	var originallyCreatedBy: Option[String] = None
+
+	@BeanProperty
 	var originallyCreatedOn: Option[Date] = None
 
 	// Allow object to be used as a template for creating other objects
+	@BeanProperty
 	var isTemplate: Boolean = false
 
 	//TODO hashcode/digest
